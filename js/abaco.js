@@ -1,5 +1,7 @@
 // Ábaco de fichas interativo (Instrumentos e Métodos de Cálculo)
-// Quatro colunas (M, C, X, I), até 9 fichas em cada uma.
+// Duas formas de representação:
+//  - completo: até 9 fichas por coluna (M, C, X, I);
+//  - simplificado: 1 ficha superior (vale 5) + até 4 fichas inferiores por coluna.
 // Permite guardar um valor e somar/subtrair outro, mostrando a explicação.
 (function () {
   var grade = document.getElementById('abaco-grade');
@@ -13,6 +15,7 @@
   ];
   var contas = [0, 0, 0, 0];
   var memoria = null;
+  var modo = 'completo';
 
   var elDec = document.getElementById('abaco-decimal');
   var elRom = document.getElementById('abaco-romano');
@@ -58,18 +61,37 @@
   function desenha() {
     var html = '';
     for (var i = 0; i < cols.length; i++) {
+      var c = contas[i];
+      var r;
       html += '<div class="abaco-col">';
       html += '<span class="abaco-letra">' + cols[i].letra + '</span>';
       html += '<span class="abaco-valor">' + formata(cols[i].valor) + '</span>';
-      html += '<div class="abaco-trilho">';
-      for (var r = 0; r < 9; r++) {
-        var cheia = r < contas[i];
-        html += '<button type="button" class="abaco-slot" data-col="' + i + '" data-row="' + r +
-          '" aria-label="Ficha em ' + cols[i].nome + ', posição ' + (r + 1) + '">' +
-          (cheia ? '<span class="abaco-ficha"></span>' : '') + '</button>';
+
+      if (modo === 'simplificado') {
+        var temTopo = c >= 5;
+        var baixas = c % 5;
+        html += '<button type="button" class="abaco-superior' + (temTopo ? ' com-ficha' : '') +
+          '" data-col="' + i + '" data-sup="1" aria-label="Ficha superior (5) em ' + cols[i].nome + '">' +
+          (temTopo ? '<span class="abaco-ficha ficha-topo"></span>' : '') + '</button>';
+        html += '<span class="abaco-valor">5</span>';
+        html += '<div class="abaco-trilho">';
+        for (r = 0; r < 4; r++) {
+          html += '<button type="button" class="abaco-slot" data-col="' + i + '" data-row="' + r +
+            '" aria-label="Ficha inferior em ' + cols[i].nome + ', posição ' + (r + 1) + '">' +
+            (r < baixas ? '<span class="abaco-ficha"></span>' : '') + '</button>';
+        }
+        html += '</div>';
+      } else {
+        html += '<div class="abaco-trilho">';
+        for (r = 0; r < 9; r++) {
+          html += '<button type="button" class="abaco-slot" data-col="' + i + '" data-row="' + r +
+            '" aria-label="Ficha em ' + cols[i].nome + ', posição ' + (r + 1) + '">' +
+            (r < c ? '<span class="abaco-ficha"></span>' : '') + '</button>';
+        }
+        html += '</div>';
       }
-      html += '</div>';
-      html += '<span class="abaco-conta">' + contas[i] + '</span>';
+
+      html += '<span class="abaco-conta">' + c + '</span>';
       html += '</div>';
     }
     grade.innerHTML = html;
@@ -90,16 +112,46 @@
     if (elPasso) elPasso.textContent = txt;
   }
 
+  // clicar numa ficha tira ela (e as de cima); clicar no vazio completa até ali
   grade.addEventListener('click', function (e) {
-    var slot = e.target.closest ? e.target.closest('.abaco-slot') : null;
-    if (!slot) return;
-    var i = parseInt(slot.getAttribute('data-col'), 10);
-    var r = parseInt(slot.getAttribute('data-row'), 10);
-    // clicar numa ficha tira ela e as de cima; clicar no vazio completa até ali
-    contas[i] = (r < contas[i]) ? r : r + 1;
+    var alvo = e.target.closest ? e.target.closest('.abaco-slot, .abaco-superior') : null;
+    if (!alvo) return;
+    var i = parseInt(alvo.getAttribute('data-col'), 10);
+
+    if (alvo.getAttribute('data-sup')) {
+      contas[i] = contas[i] >= 5 ? contas[i] - 5 : Math.min(9, contas[i] + 5);
+    } else {
+      var r = parseInt(alvo.getAttribute('data-row'), 10);
+      if (modo === 'completo') {
+        contas[i] = (r < contas[i]) ? r : r + 1;
+      } else {
+        var topo = contas[i] >= 5 ? 5 : 0;
+        var baixas = contas[i] - topo;
+        var novas = (r < baixas) ? r : r + 1;
+        contas[i] = Math.min(9, topo + novas);
+      }
+    }
     atualiza();
     passo('');
   });
+
+  // alterna entre o ábaco completo e a simplificação (ficha superior = 5)
+  var modos = document.querySelector('.abaco-modos');
+  if (modos) {
+    modos.addEventListener('click', function (e) {
+      var b = e.target.closest ? e.target.closest('button[data-modo]') : null;
+      if (!b) return;
+      modo = b.getAttribute('data-modo');
+      var botoes = modos.querySelectorAll('button');
+      for (var k = 0; k < botoes.length; k++) {
+        botoes[k].setAttribute('aria-pressed', botoes[k] === b ? 'true' : 'false');
+      }
+      atualiza();
+      passo(modo === 'simplificado'
+        ? 'Modo simplificado: cada coluna tem uma ficha superior que vale 5 e até 4 fichas inferiores.'
+        : 'Modo completo: cada coluna tem até 9 fichas, uma por unidade.');
+    });
+  }
 
   var botoes = document.querySelector('.abaco-botoes');
   if (botoes) {
@@ -108,6 +160,18 @@
       if (!b) return;
       var acao = b.getAttribute('data-ab');
       var t = total();
+
+      if (acao === 'exemplo') {
+        contas = [4, 5, 3, 7];
+        memoria = null;
+        if (elMem) elMem.textContent = 'Nenhum valor guardado.';
+        atualiza();
+        passo('Exemplo 4.537: 4 fichas em M, 5 em C, 3 em X e 7 em I.' +
+          (modo === 'simplificado'
+            ? ' Na simplificação: 4 fichas inferiores em M, 1 superior em C, 3 inferiores em X e 1 superior + 2 inferiores em I.'
+            : ''));
+        return;
+      }
 
       if (acao === 'guardar') {
         memoria = t;
@@ -148,17 +212,19 @@
         if (acao === 'somar') {
           var levou = false;
           for (i = 0; i < 4; i++) if (ca[i] + cb[i] >= 10) levou = true;
+          var detalhe = modo === 'simplificado'
+            ? 'Nas colunas que passaram de 9, 5 fichas inferiores viraram 1 ficha superior (5 + 5 viraram 1 ficha inferior na coluna da esquerda).'
+            : 'Em alguma coluna passou de 9 fichas: 10 fichas foram trocadas por 1 ficha na coluna da esquerda (o "vai um").';
           passo(formata(a) + ' + ' + formata(bb) + ' = ' + formata(r) + ' (' + romano(r) + '). ' +
-            (levou
-              ? 'Em alguma coluna passou de 9 fichas: 10 fichas foram trocadas por 1 ficha na coluna da esquerda (o "vai um").'
-              : 'Nenhuma coluna passou de 9 fichas, então não foi preciso trocar fichas.'));
+            (levou ? detalhe : 'Nenhuma coluna passou de 9 fichas, então não foi preciso trocar fichas.'));
         } else {
           var emprestou = false;
           for (i = 0; i < 4; i++) if (ca[i] < cb[i]) emprestou = true;
+          var detalhe2 = modo === 'simplificado'
+            ? 'Em alguma coluna faltaram fichas: 1 ficha da coluna da esquerda foi trocada por 2 fichas superiores (5 + 5) na coluna atual (o "empresta um").'
+            : 'Em alguma coluna faltaram fichas: 1 ficha da coluna da esquerda foi trocada por 10 na coluna atual (o "empresta um").';
           passo(formata(a) + ' − ' + formata(bb) + ' = ' + formata(r) + ' (' + romano(r) + '). ' +
-            (emprestou
-              ? 'Em alguma coluna faltaram fichas: 1 ficha da coluna da esquerda foi trocada por 10 na coluna atual (o "empresta um").'
-              : 'Havia fichas suficientes em todas as colunas, então bastou retirá-las.'));
+            (emprestou ? detalhe2 : 'Havia fichas suficientes em todas as colunas, então bastou retirá-las.'));
         }
 
         contas = decompoe(r);

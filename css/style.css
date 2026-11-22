@@ -207,6 +207,39 @@ ul.referencias li:last-child { margin-bottom: 0; }
 }
 .abaco-conta { font-size: 0.82em; color: #555; }
 
+/* escolha entre o ábaco completo e a simplificação */
+.abaco-modos { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5em; margin: 0 0 1.3em; }
+.abaco-modos button {
+  font: inherit;
+  font-size: 0.9em;
+  padding: 0.4em 0.95em;
+  background: #fff;
+  color: #06c;
+  border: 1px solid #08c;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.abaco-modos button[aria-pressed="true"] { background: #06c; color: #fff; }
+
+/* ficha superior da simplificação ( vale 5 ) */
+.abaco-superior {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 28px;
+  padding: 0;
+  border: 1px dashed #a2947a;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+}
+.abaco-superior:hover { background: rgba(255, 255, 255, 0.45); }
+.abaco-superior .ficha-topo {
+  background: radial-gradient(circle at 35% 30%, #eaa38e, #a33b28 70%, #6e2114);
+  border-color: #652016;
+}
+
 .abaco-leitura {
   display: flex;
   flex-wrap: wrap;
@@ -247,6 +280,7 @@ ol.abaco-explica li { margin-bottom: 0.55em; }
   .abaco { padding: 1.1em 0.9em 1.3em; }
   .abaco-grade { gap: 0.55em; }
   .abaco-slot { width: 34px; }
+  .abaco-superior { width: 34px; }
 }
 
 /* ---------- caixa cinza com o áudio da experiência ---------- */

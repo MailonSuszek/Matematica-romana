@@ -6,7 +6,7 @@
     {
       title: 'Início',
       url: 'index.html',
-      text: 'Matemática no Império Romano Como uma das maiores civilizações da Antiguidade conseguiu construir aquedutos monumentais, estradas lendárias e gerenciar um império gigante espalhado por três continentes sem utilizar o número zero ou um sistema numérico posicional? Nesse site, exploraremos o universo da matemática no Império Romano, compreendendo como as necessidades práticas de administração e engenharia moldaram o modo de contar e calcular dos romanos, e como essa tradição conviveu com o brilhantismo teórico dos sábios de Alexandria sob o domínio de Roma. Últimas novidades A matemática prática do Império 2026-11-21 Compreender a natureza prática e utilitária da matemática romana em áreas como agrimensura, arquitetura e administração imperial. Sistema de numeração romano 2026-11-21 Dominar a estrutura do sistema de numeração romano (I, V, X, L, C, D, M) e as convenções para representar grandes quantidades. Instrumentos de cálculo mecânico 2026-11-21 Explicar o funcionamento dos instrumentos de cálculo mecânico romanos, como o ábaco de cera e o ábaco de fichas. O papel de Alexandria e seus pensadores 2026-11-21 Analisar o papel de Alexandria durante o período romano e as contribuições de pensadores como Heron, Diófanto e Pappus.'
+      text: 'Matemática no Império Romano Como uma das maiores civilizações da Antiguidade conseguiu construir aquedutos monumentais, estradas lendárias e gerenciar um império gigante espalhado por três continentes sem utilizar o número zero ou um sistema numérico posicional? Nesse site, exploraremos o universo da matemática no Império Romano, compreendendo como as necessidades práticas de administração e engenharia moldaram o modo de contar e calcular dos romanos, e como essa tradição conviveu com o brilhantismo teórico dos sábios de Alexandria sob o domínio de Roma. Últimas novidades A matemática prática do Império 21-11-2026 Compreender a natureza prática e utilitária da matemática romana em áreas como agrimensura, arquitetura e administração imperial. Sistema de numeração romano 21-11-2026 Dominar a estrutura do sistema de numeração romano (I, V, X, L, C, D, M) e as convenções para representar grandes quantidades. Instrumentos de cálculo mecânico 21-11-2026 Explicar o funcionamento dos instrumentos de cálculo mecânico romanos, como o ábaco de cera e o ábaco de fichas. O papel de Alexandria e seus pensadores 21-11-2026 Analisar o papel de Alexandria durante o período romano e as contribuições de pensadores como Heron, Diófanto e Pappus.'
     },
     {
       title: 'Contexto Histórico',
@@ -15,7 +15,11 @@
     },
     { title: 'A Matemática em Roma', url: 'a-matematica-em-roma.html', text: '' },
     { title: 'Sistema de Numeração Romano', url: 'sistema-de-numeracao-romana.html', text: '' },
-    { title: 'Instrumentos e Métodos de Cálculo', url: 'instrumentos-e-metodos-de-calculo.html', text: '' },
+    {
+      title: 'Instrumentos e Métodos de Cálculo',
+      url: 'instrumentos-e-metodos-de-calculo.html',
+      text: 'O ábaco de fichas romano funcionava por meio da organização de fichas em colunas, sendo cada coluna correspondente a uma ordem numérica, como unidades, dezenas, centenas, milhares e ordens superiores. Para representar um número, colocavam-se as fichas nas respectivas colunas, de modo que cada ficha correspondia a uma unidade daquele agrupamento. Por exemplo, na representação do número 4.537, eram colocadas quatro fichas na coluna dos milhares, cinco na das centenas, três na das dezenas e sete na das unidades. Quando uma coluna não possuía fichas, indicava-se a ausência daquela ordem numérica. Dessa maneira, o instrumento permitia representar números e realizar operações aritméticas por meio da movimentação e reorganização das fichas, tornando os cálculos mais visuais e práticos. A simplificação do ábaco de fichas consistia em reduzir a quantidade de fichas necessárias: quando uma coluna atingia cinco fichas, essas podiam ser substituídas por uma única ficha posicionada na parte superior da mesma coluna, representando o valor correspondente a cinco unidades daquela ordem. Assim, 4.537 é representado com quatro fichas na parte inferior de M, uma na parte superior de C, três na parte inferior de X e, em I, uma superior e duas inferiores. Ábaco de cera, ábaco de fichas, calculi. Vai um, empresta um.'
+    },
     { title: 'Experiência Matemática', url: 'experiencia-matematica.html', text: 'Escute. Enquanto a capital do Império focava na aplicação direta e utilitária da matemática, a cidade de Alexandria, integrada ao domínio romano a partir do século I a.C., manteve-se como o grande centro de produção e preservação do conhecimento teórico do mundo mediterrâneo. Durante o período romano, Alexandria foi palco do trabalho de matemáticos notáveis que revolucionaram a disciplina: Heron de Alexandria (século I d.C.): Uniu o rigor da geometria grega a aplicações práticas na engenharia e agrimensura. Sua obra Métricas forneceu regras para o cálculo de áreas e volumes de figuras complexas, além de métodos de aproximação de raízes quadradas. Diófanto de Alexandria (século III d.C.): Autor do tratado Aritmética, introduziu símbolos abreviados (arithmos) para representar incógnitas, sendo considerado um dos precursores da álgebra. Pappus de Alexandria (séculos III-IV d.C.): Em sua obra Coleção Matemática, realizou uma vasta compilação crítica dos trabalhos clássicos do passado, organizando problemas geométricos por níveis de complexidade. Teon e Hipátia (século IV d.C.): Dedicaram-se à edição, restauração e ensino dos grandes clássicos, como os Elementos de Euclides e as obras de Apolônio e Ptolomeu. A pesquisa historiográfica moderna reconhece que o período romano em Alexandria não foi uma época de decadência, mas sim um momento crucial de síntese entre técnicas operacionais, algebrização inicial e preservação do saber científico.' },
     { title: 'Referências', url: 'referencias.html', text: 'SOUZA, Henrique C. T. de; PINHO, Diogo S. G. de. Matemática: Império Romano. [S. l.: s. n.], [s. d.]. Apresentação de slides. Escola Kids. Disponível em: https://escolakids.uol.com.br/historia/imperio-romano-um-resumo.htm. Acesso em: 21 nov. 2026. Brasil Escola. Algarismos romanos. Disponível em: https://brasilescola.uol.com.br/matematica/algarismos-romanos.htm. Acesso em: 21 nov. 2026. ROQUE, Tatiana. História da matemática. Editora Schwarcz-Companhia das Letras, 2012.' },
     {
@@ -158,9 +162,14 @@
     var altura = content ? content.offsetHeight : 0;
     // Branco grande: aumenta muito ao estreitar e acompanha o conteúdo novo.
     var espaco = dif < 8 ? 0 : Math.round(1600 + dif * 6 + altura * 1.2);
+    // No celular a janela não é "diminuída": garante bastante branco mesmo assim.
+    if (largura <= 640) {
+      espaco = Math.round(Math.max(espaco, 1400 + altura * 1.5));
+    }
     if (footer) document.body.style.paddingBottom = (footer.offsetHeight + 24 + espaco) + 'px';
   }
   window.addEventListener('resize', ajustaRodape);
+  window.addEventListener('orientationchange', ajustaRodape);
   window.addEventListener('load', ajustaRodape);
   ajustaRodape();
 

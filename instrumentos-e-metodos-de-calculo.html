@@ -6,7 +6,7 @@
 <title>Instrumentos e Métodos de Cálculo | Matemática Romana</title>
 <meta name="theme-color" content="#0088cc">
 <link rel="icon" href="img/favicon.svg?v=11" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css?v=35">
+<link rel="stylesheet" href="css/style.css?v=36">
 </head>
 <body>
 
@@ -39,7 +39,12 @@
 
     <div class="abaco" id="abaco">
       <h3>Ábaco de Fichas Interativo</h3>
-      <p>Manipule as fichas para representar números e fazer somas e subtrações, como os romanos faziam. Clique numa ficha (ou num espaço vazio) para colocar ou tirar as fichas da coluna.</p>
+      <p>O ábaco de fichas romano funcionava por meio da organização de fichas em colunas, sendo cada coluna correspondente a uma ordem numérica, como unidades, dezenas, centenas, milhares e ordens superiores. Para representar um número, colocavam-se as fichas nas respectivas colunas, de modo que cada ficha correspondia a uma unidade daquele agrupamento. Por exemplo, na representação do número 4.537, eram colocadas quatro fichas na coluna dos milhares, cinco na das centenas, três na das dezenas e sete na das unidades. Quando uma coluna não possuía fichas, indicava-se a ausência daquela ordem numérica. Dessa maneira, o instrumento permitia representar números e realizar operações aritméticas por meio da movimentação e reorganização das fichas, tornando os cálculos mais visuais e práticos. A simplificação do ábaco, apresentada na imagem, buscava facilitar a organização e a visualização das quantidades representadas.</p>
+
+      <div class="abaco-modos" role="group" aria-label="Forma de representação do ábaco">
+        <button type="button" data-modo="completo" aria-pressed="true">Ábaco completo</button>
+        <button type="button" data-modo="simplificado" aria-pressed="false">Simplificação (ficha do meio)</button>
+      </div>
 
       <div class="abaco-grade" id="abaco-grade"></div>
 
@@ -49,6 +54,7 @@
       </div>
 
       <div class="abaco-botoes">
+        <button type="button" data-ab="exemplo">Exemplo 4.537</button>
         <button type="button" data-ab="guardar">Guardar valor</button>
         <button type="button" data-ab="somar">Somar</button>
         <button type="button" data-ab="subtrair">Subtrair</button>
@@ -58,13 +64,16 @@
       <p class="abaco-memoria" id="abaco-memoria">Nenhum valor guardado.</p>
       <p class="abaco-passo" id="abaco-passo"></p>
 
+      <h4>A simplificação do ábaco de fichas</h4>
+      <p>A simplificação do ábaco de fichas consistia em reduzir a quantidade de fichas necessárias para representar determinados valores, facilitando a leitura e a organização dos números. Para isso, quando uma coluna atingia cinco fichas, essas fichas podiam ser substituídas por uma única ficha posicionada na parte superior da mesma coluna, representando o valor correspondente a cinco unidades daquela ordem. Assim, em vez de manter cinco fichas na parte inferior, utilizava-se apenas uma ficha na parte superior, enquanto as fichas restantes continuavam na parte inferior. Na imagem, por exemplo, o número 4.537 é representado com quatro fichas na parte inferior da coluna dos milhares, uma ficha na parte superior da coluna das centenas, três fichas na parte inferior das dezenas e, na coluna das unidades, uma ficha na parte superior e duas na parte inferior, totalizando sete unidades. Essa organização tornava a representação numérica mais compacta, facilitando a visualização das quantidades e a realização dos cálculos.</p>
+
       <h4>Como o cálculo é realizado</h4>
       <ol class="abaco-explica">
-        <li>Cada coluna é uma ordem de grandeza: <strong>I</strong> = 1, <strong>X</strong> = 10, <strong>C</strong> = 100 e <strong>M</strong> = 1.000.</li>
-        <li>Cada ficha vale o valor da coluna em que está, e o número é a soma de todas as fichas: 3 fichas em C, 2 em X e 4 em I formam 324.</li>
-        <li>Para <strong>somar</strong>, juntam-se as fichas dos dois números nas mesmas colunas. Quando uma coluna chega a 10 fichas, elas são trocadas por 1 ficha na coluna da esquerda (o "vai um").</li>
-        <li>Para <strong>subtrair</strong>, retiram-se as fichas; se faltarem, troca-se 1 ficha da coluna da esquerda por 10 na coluna atual (o "empresta um").</li>
-        <li>É por isso que o ábaco dispensava o zero e a escrita posicional: a posição da coluna já indicava a ordem de grandeza.</li>
+        <li>Cada coluna é uma ordem de grandeza: <strong>I</strong> = 1, <strong>X</strong> = 10, <strong>C</strong> = 100 e <strong>M</strong> = 1.000. Cada ficha vale o valor da coluna em que está e o número é a soma de todas as fichas.</li>
+        <li>No <strong>ábaco completo</strong>, cada coluna tem até 9 fichas. Para somar, juntam-se as fichas: ao chegar a 10, trocam-se por 1 ficha na coluna da esquerda (o "vai um").</li>
+        <li>Para subtrair, retiram-se as fichas; se faltarem, troca-se 1 ficha da coluna da esquerda por 10 na coluna atual (o "empresta um").</li>
+        <li>Na <strong>simplificação</strong>, 5 fichas inferiores viram 1 ficha superior (que vale 5 unidades daquela ordem). Quando há 2 fichas superiores, elas viram 1 ficha inferior na coluna da esquerda.</li>
+        <li>Uma coluna sem fichas indicava a ausência daquela ordem — por isso o ábaco dispensava o zero e a escrita posicional.</li>
       </ol>
     </div>
   </div>
@@ -91,7 +100,7 @@
   <p>2026 - UNESPAR - Licenciatura de Matemática - Disciplina Historia da Matemática 2° Serie</p>
 </div>
 
-<script src="js/main.js?v=31"></script>
-<script src="js/abaco.js?v=1"></script>
+<script src="js/main.js?v=34"></script>
+<script src="js/abaco.js?v=2"></script>
 </body>
 </html>
