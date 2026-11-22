@@ -16,6 +16,7 @@ css/style.css                           Todo o visual do site (cores, fontes, ta
 js/main.js                              Busca de palavras-chave e rodapé
 js/desafio.js                           Desafio de numeração romana (perguntas)
 js/abaco.js                             Ábaco de fichas interativo
+js/cera.js                              Ábaco de cera interativo
 img/favicon.svg                         Ícone da aba do navegador
 img/mapa-imperio-romano.jpg             Mapa mostrado na barra lateral
 img/numeros-romanos.webp                Imagem do desafio de numeração romana

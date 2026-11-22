@@ -6,7 +6,7 @@
 <title>Instrumentos e Métodos de Cálculo | Matemática Romana</title>
 <meta name="theme-color" content="#0088cc">
 <link rel="icon" href="img/favicon.svg?v=11" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css?v=37">
+<link rel="stylesheet" href="css/style.css?v=38">
 </head>
 <body>
 
@@ -76,6 +76,59 @@
         <li>Uma coluna sem fichas indicava a ausência daquela ordem — por isso o ábaco dispensava o zero e a escrita posicional.</li>
       </ol>
     </div>
+
+    <div class="abaco-cera" id="abaco-cera">
+      <h3>O Ábaco de Cera</h3>
+      <p>O ábaco de cera era um instrumento utilizado pelos romanos para registrar números, organizar quantidades e realizar operações matemáticas. Diferentemente do ábaco de fichas, que empregava peças móveis para representar valores, o ábaco de cera consistia em uma superfície revestida de cera, na qual os registros eram feitos por meio de um estilete, permitindo escrever, alterar e apagar representações numéricas. Sua estrutura podia ser organizada em colunas, cada uma correspondente a uma ordem do sistema numérico, como unidades, dezenas, centenas, milhares e ordens superiores.</p>
+
+      <p>A organização dessas colunas permitia que os números fossem representados de maneira ordenada, facilitando a identificação do valor de cada algarismo. Nas representações apresentadas, observa-se a utilização de símbolos romanos distribuídos conforme suas respectivas ordens numéricas, incluindo os símbolos com traço superior, utilizados para representar valores maiores. Essa disposição possibilitava estruturar os números de maneira visual, facilitando sua leitura e manipulação durante os cálculos.</p>
+
+      <p class="cera-dica">Clique na cera para escrever uma marca com o estilete; clique numa marca para apagá-la (e às de cima).</p>
+
+      <div class="cera-grade" id="cera-grade"></div>
+
+      <div class="cera-leitura">
+        <p>Número registrado: <strong id="cera-decimal">0</strong></p>
+        <p>Em números romanos: <strong id="cera-romano">&mdash;</strong></p>
+      </div>
+
+      <div class="cera-botoes">
+        <button type="button" data-cera="exemplo">Exemplo 26.460</button>
+        <button type="button" data-cera="guardar">Guardar valor</button>
+        <button type="button" data-cera="somar">Somar</button>
+        <button type="button" data-cera="subtrair">Subtrair</button>
+        <button type="button" data-cera="zerar">Apagar tudo</button>
+      </div>
+
+      <p class="cera-memoria" id="cera-memoria">Nenhum valor guardado.</p>
+      <p class="cera-passo" id="cera-passo"></p>
+
+      <h4>Como interpretar a representação da imagem?</h4>
+      <p>O exemplo da primeira imagem representa o número 26.460.</p>
+      <p>As colunas indicam as seguintes ordens numéricas:</p>
+
+      <table class="results cera-tabela">
+        <thead>
+          <tr><th>Coluna</th><th>Valor posicional</th><th>Representação</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="sobrelinha">C</span></td><td>100.000</td><td>0</td></tr>
+          <tr><td><span class="sobrelinha">X</span></td><td>10.000</td><td>2</td></tr>
+          <tr><td><span class="sobrelinha">I</span></td><td>1.000</td><td>6</td></tr>
+          <tr><td>C</td><td>100</td><td>4</td></tr>
+          <tr><td>X</td><td>10</td><td>6</td></tr>
+          <tr><td>I</td><td>1</td><td>0</td></tr>
+        </tbody>
+      </table>
+
+      <p>Assim, a leitura é realizada considerando o valor correspondente a cada coluna, resultando em 26.460. A ausência de um símbolo na coluna das unidades indica que não há unidades a acrescentar ao número.</p>
+
+      <p>Nas imagens seguintes, a disposição dos registros demonstra como a estrutura tabular permite organizar e manipular as representações numéricas, mantendo cada símbolo associado à sua respectiva ordem. A superfície de cera também oferecia a possibilidade de modificar os registros, tornando o instrumento útil para cálculos que exigiam alterações sucessivas, como operações de adição e subtração.</p>
+
+      <p>Dessa maneira, o ábaco de cera contribuía para a organização dos cálculos na sociedade romana, funcionando como um suporte material para o registro, a manipulação e a visualização de números. A estrutura organizada por ordens numéricas permitia realizar cálculos sem depender exclusivamente da escrita dos números em uma sequência linear, tornando o processo mais sistemático.</p>
+
+      <p class="cera-nota">Nota histórica: as imagens ilustram uma representação didática do instrumento e de seu uso. Os detalhes exatos dos procedimentos históricos podem variar conforme o modelo de ábaco e a fonte utilizada.</p>
+    </div>
   </div>
 
   <div id="sidebar">
@@ -100,7 +153,8 @@
   <p>2026 - UNESPAR - Licenciatura de Matemática - Disciplina Historia da Matemática 2° Serie</p>
 </div>
 
-<script src="js/main.js?v=35"></script>
+<script src="js/main.js?v=36"></script>
 <script src="js/abaco.js?v=2"></script>
+<script src="js/cera.js?v=1"></script>
 </body>
 </html>
