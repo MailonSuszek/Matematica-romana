@@ -160,12 +160,16 @@
     var dif = base - largura;
     var content = document.getElementById('content');
     var altura = content ? content.offsetHeight : 0;
-    // Branco grande: aumenta muito ao estreitar e acompanha o conteúdo novo.
-    var espaco = dif < 8 ? 0 : Math.round(1600 + dif * 6 + altura * 1.2);
-    // No celular a janela não é "diminuída": garante bastante branco mesmo assim.
-    if (largura <= 640) {
-      espaco = Math.round(Math.max(espaco, 1400 + altura * 1.5));
+    var ehCelular = largura <= 640;
+    // O branco acompanha a quantidade de conteúdo da página:
+    // páginas curtas ficam com pouco; páginas longas (como Instrumentos) ficam com muito.
+    var limite = ehCelular ? 1000 : 900;
+    var espaco = Math.max(0, Math.round((altura - limite) * 3));
+    // Ao estreitar a janela, o branco cresce um pouco mais (proporcional ao conteúdo).
+    if (!ehCelular && dif >= 8) {
+      espaco += Math.round(dif * 4 * Math.min(1, altura / 1200));
     }
+    if (ehCelular) espaco = Math.max(espaco, 800);
     if (footer) document.body.style.paddingBottom = (footer.offsetHeight + 24 + espaco) + 'px';
   }
   window.addEventListener('resize', ajustaRodape);

@@ -654,8 +654,8 @@ button.mm-label[aria-expanded="false"]::after { content: "+"; }
   #archnavbarlist li { padding: 6px 8px; line-height: 1.35; }
   #archnavbarlist li:last-child { padding-right: 8px; }
   #content { flex-direction: column; gap: calc(3em + var(--extra) * 0.7); margin-top: calc(2.4em + var(--extra) * 0.5); padding: 0 calc(2em + var(--extra) * 0.35) 2em; }
-  #content-left { min-height: 0; width: 100%; order: 2; }
-  #sidebar { flex: 1 1 auto; width: 100%; order: 1; }
+  #content-left { min-height: 0; width: 100%; order: 2; flex: 0 0 auto; }
+  #sidebar { flex: 0 0 auto; width: 100%; order: 1; }
   h2 { font-size: 1.4em; margin-bottom: 1.2em; }
   h3 { font-size: 1.2em; margin-top: 2.2em; margin-bottom: 1em; }
   #sidebar li { padding: calc(0.5em + var(--extra) * 0.2) 0; }
