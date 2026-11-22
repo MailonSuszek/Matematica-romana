@@ -1,0 +1,44 @@
+MATEMÁTICA ROMANA - site estático (HTML + CSS + um pouco de JavaScript)
+
+COMO ABRIR
+Dê dois cliques em index.html. Não precisa instalar nada nem ter internet.
+
+ESTRUTURA
+index.html                              Início
+contexto-historico.html                 Contexto Histórico
+a-matematica-em-roma.html               A Matemática em Roma
+sistema-de-numeracao-romana.html        Sistema de Numeração Romano
+instrumentos-e-metodos-de-calculo.html  Instrumentos e Métodos de Cálculo
+experiencia-matematica.html             Experiência Matemática
+referencias.html                        Referências
+sobre.html                              Sobre o site
+css/style.css                           Todo o visual do site (cores, fontes, tamanhos)
+js/main.js                              Busca de palavras-chave e rodapé
+js/desafio.js                           Desafio de numeração romana (perguntas)
+js/abaco.js                             Ábaco de fichas interativo
+img/favicon.svg                         Ícone da aba do navegador
+img/mapa-imperio-romano.jpg             Mapa mostrado na barra lateral
+img/numeros-romanos.webp                Imagem do desafio de numeração romana
+img/abaco.mp4                           Vídeo do ábaco romano
+experiencia.m4a                         Áudio da página Experiência Matemática
+
+COMO PREENCHER O CONTEÚDO
+Todas as páginas estão em branco. Em cada arquivo .html, procure o comentário
+"ESCREVA AQUI" dentro de <div id="content-left"> e escreva o texto ali.
+- Parágrafo:  <p>Seu texto.</p>
+- Subtítulo:  <h3>Título</h3>
+- Link:       <a href="sistema-de-numeracao-romana.html">texto do link</a>
+- Tabela:     use <table class="results"> (modelo comentado em experiencia-matematica.html)
+- Novidades da página inicial: modelo comentado em index.html.
+
+PARA ADICIONAR UMA PÁGINA NOVA
+1. Copie qualquer página existente e dê um novo nome (ex.: abaco.html).
+2. Troque o <title> e o <h2>.
+3. Inclua o link da nova página na barra do topo e na barra lateral de cada arquivo.
+4. Se quiser que a busca encontre a página, acrescente-a na lista "pages" em js/main.js.
+
+PARA PUBLICAR NA INTERNET
+Envie todos os arquivos e pastas, mantendo a organização, para qualquer
+hospedagem de sites estáticos (GitHub Pages, Netlify, Cloudflare Pages etc.).
+
+O visual é inspirado em archlinux.org. Nenhum logotipo ou arte do Arch Linux foi usado.

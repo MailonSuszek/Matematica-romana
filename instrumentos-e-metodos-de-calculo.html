@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Instrumentos e Métodos de Cálculo | Matemática Romana</title>
+<meta name="theme-color" content="#0088cc">
+<link rel="icon" href="img/favicon.svg?v=11" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css?v=35">
+</head>
+<body>
+
+<div id="archnavbar">
+  <div id="archnavbarlogo"><a href="index.html" title="Voltar à página inicial">Matemática <span>Romana</span></a><small>Mailon Suszek</small></div>
+  <ul id="archnavbarlist">
+    <li><a href="contexto-historico.html">Contexto Histórico</a></li>
+    <li><a href="a-matematica-em-roma.html">A Matemática em Roma</a></li>
+    <li><a href="sistema-de-numeracao-romana.html">Sistema de Numeração Romano</a></li>
+    <li><a href="instrumentos-e-metodos-de-calculo.html" aria-current="page">Instrumentos e Métodos de Cálculo</a></li>
+    <li><a href="experiencia-matematica.html">Experiência Matemática</a></li>
+    <li><a href="referencias.html">Referências</a></li>
+  </ul>
+</div>
+
+<div id="content">
+  <div id="content-left">
+    <h2>Instrumentos e Métodos de Cálculo</h2>
+    <p>Sem um símbolo para o zero e sem uma escrita numérica posicional, como os comerciantes, engenheiros e contadores romanos realizavam multiplicações, somas ou divisões de grande porte? A solução residia no uso de <strong>instrumentos de cálculo mecânico</strong>.</p>
+    <p>Os romanos dominavam o uso de ábacos para realizar operações aritméticas com agilidade extraordinária:</p>
+    <ul class="topicos">
+      <li><strong>O Ábaco de Cera</strong>: Consistia em tábuas de madeira recobertas com uma fina camada de cera, onde as colunas numéricas eram traçadas com um estilete. Esse suporte permitia anotar passos intermediários de operações e apagar rapidamente os resultados para efetuar novas contas, sendo muito utilizado em tarefas escolares e comerciais (como na multiplicação de números elevados, a exemplo de 630 por 42).</li>
+      <li><strong>O Ábaco de Fichas (ou Calculi)</strong>: Era uma placa de metal ou pedra com ranhuras verticais. Marcadores móveis chamados <em>calculi</em> (termo que deu origem à palavra "cálculo") eram deslizados pelas colunas. Cada coluna representava uma ordem de grandeza (unidades, dezenas, centenas, milhares), funcionando na prática como um sistema posicional mecânico.</li>
+    </ul>
+    <p>Dessa forma, a rigidez do sistema de numeração escrito era superada pela flexibilidade do ábaco, permitindo que a administração e o comércio do Império funcionassem com enorme eficiência mecânica.</p>
+
+    <figure class="video-figura">
+      <video src="img/abaco.mp4" controls preload="metadata" playsinline aria-label="Vídeo demonstrando o uso do ábaco romano"></video>
+    </figure>
+
+    <div class="abaco" id="abaco">
+      <h3>Ábaco de Fichas Interativo</h3>
+      <p>Manipule as fichas para representar números e fazer somas e subtrações, como os romanos faziam. Clique numa ficha (ou num espaço vazio) para colocar ou tirar as fichas da coluna.</p>
+
+      <div class="abaco-grade" id="abaco-grade"></div>
+
+      <div class="abaco-leitura">
+        <p>Valor no ábaco: <strong id="abaco-decimal">0</strong></p>
+        <p>Em números romanos: <strong id="abaco-romano">&mdash;</strong></p>
+      </div>
+
+      <div class="abaco-botoes">
+        <button type="button" data-ab="guardar">Guardar valor</button>
+        <button type="button" data-ab="somar">Somar</button>
+        <button type="button" data-ab="subtrair">Subtrair</button>
+        <button type="button" data-ab="zerar">Zerar</button>
+      </div>
+
+      <p class="abaco-memoria" id="abaco-memoria">Nenhum valor guardado.</p>
+      <p class="abaco-passo" id="abaco-passo"></p>
+
+      <h4>Como o cálculo é realizado</h4>
+      <ol class="abaco-explica">
+        <li>Cada coluna é uma ordem de grandeza: <strong>I</strong> = 1, <strong>X</strong> = 10, <strong>C</strong> = 100 e <strong>M</strong> = 1.000.</li>
+        <li>Cada ficha vale o valor da coluna em que está, e o número é a soma de todas as fichas: 3 fichas em C, 2 em X e 4 em I formam 324.</li>
+        <li>Para <strong>somar</strong>, juntam-se as fichas dos dois números nas mesmas colunas. Quando uma coluna chega a 10 fichas, elas são trocadas por 1 ficha na coluna da esquerda (o "vai um").</li>
+        <li>Para <strong>subtrair</strong>, retiram-se as fichas; se faltarem, troca-se 1 ficha da coluna da esquerda por 10 na coluna atual (o "empresta um").</li>
+        <li>É por isso que o ábaco dispensava o zero e a escrita posicional: a posição da coluna já indicava a ordem de grandeza.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div id="sidebar">
+    <form id="search" role="search" action="#" autocomplete="off">
+      <label for="q">Buscar palavra-chave:</label>
+      <input id="q" name="q" type="text" placeholder="ex.: contexto">
+      <p id="search-msg"></p>
+    </form>
+
+    <h4>Mapa</h4>
+    <img src="img/mapa-imperio-romano.jpg" alt="Mapa do Império Romano">
+    <p class="mapa-legenda">Fonte: Escola Kids. Disponível em: <a href="https://escolakids.uol.com.br/historia/imperio-romano-um-resumo.htm" target="_blank" rel="noopener">https://escolakids.uol.com.br/historia/imperio-romano-um-resumo.htm</a>. Acesso em: 21 nov. 2026.</p>
+    <h4>Mais</h4>
+    <ul>
+      <li><a href="index.html">Página inicial</a></li>
+      <li><a href="sobre.html">Sobre o site</a></li>
+    </ul>
+  </div>
+</div>
+
+<div id="footer">
+  <p>2026 - UNESPAR - Licenciatura de Matemática - Disciplina Historia da Matemática 2° Serie</p>
+</div>
+
+<script src="js/main.js?v=31"></script>
+<script src="js/abaco.js?v=1"></script>
+</body>
+</html>
