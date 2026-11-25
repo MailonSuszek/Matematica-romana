@@ -6,7 +6,7 @@
 <title>Instrumentos e Métodos de Cálculo | Matemática Romana</title>
 <meta name="theme-color" content="#0088cc">
 <link rel="icon" href="img/favicon.svg?v=11" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css?v=38">
+<link rel="stylesheet" href="css/style.css?v=41">
 </head>
 <body>
 
@@ -58,11 +58,13 @@
         <button type="button" data-ab="guardar">Guardar valor</button>
         <button type="button" data-ab="somar">Somar</button>
         <button type="button" data-ab="subtrair">Subtrair</button>
+        <button type="button" data-ab="multiplicar">Multiplicar</button>
         <button type="button" data-ab="zerar">Zerar</button>
       </div>
 
       <p class="abaco-memoria" id="abaco-memoria">Nenhum valor guardado.</p>
       <p class="abaco-passo" id="abaco-passo"></p>
+      <div class="abaco-multiplicacao" id="abaco-multiplicacao" hidden></div>
 
       <h4>A simplificação do ábaco de fichas</h4>
       <p>A simplificação do ábaco de fichas consistia em reduzir a quantidade de fichas necessárias para representar determinados valores, facilitando a leitura e a organização dos números. Para isso, quando uma coluna atingia cinco fichas, essas fichas podiam ser substituídas por uma única ficha posicionada na parte superior da mesma coluna, representando o valor correspondente a cinco unidades daquela ordem. Assim, em vez de manter cinco fichas na parte inferior, utilizava-se apenas uma ficha na parte superior, enquanto as fichas restantes continuavam na parte inferior. Na imagem, por exemplo, o número 4.537 é representado com quatro fichas na parte inferior da coluna dos milhares, uma ficha na parte superior da coluna das centenas, três fichas na parte inferior das dezenas e, na coluna das unidades, uma ficha na parte superior e duas na parte inferior, totalizando sete unidades. Essa organização tornava a representação numérica mais compacta, facilitando a visualização das quantidades e a realização dos cálculos.</p>
@@ -73,8 +75,10 @@
         <li>No <strong>ábaco completo</strong>, cada coluna tem até 9 fichas. Para somar, juntam-se as fichas: ao chegar a 10, trocam-se por 1 ficha na coluna da esquerda (o "vai um").</li>
         <li>Para subtrair, retiram-se as fichas; se faltarem, troca-se 1 ficha da coluna da esquerda por 10 na coluna atual (o "empresta um").</li>
         <li>Na <strong>simplificação</strong>, 5 fichas inferiores viram 1 ficha superior (que vale 5 unidades daquela ordem). Quando há 2 fichas superiores, elas viram 1 ficha inferior na coluna da esquerda.</li>
+        <li>Para <strong>multiplicar</strong>, usa-se o método das ordens numéricas mais altas: multiplicam-se os algarismos de cada coluna de um fator pelos de cada coluna do outro, começando pelas maiores. O produto parcial é colocado na coluna <strong>m + n − 1</strong>, contando as colunas a partir das unidades (IBIAPINA, 2018). Monte o primeiro fator, clique em <strong>Guardar valor</strong> (o ábaco é limpo), monte o segundo fator e clique em <strong>Multiplicar</strong>.</li>
         <li>Uma coluna sem fichas indicava a ausência daquela ordem — por isso o ábaco dispensava o zero e a escrita posicional.</li>
       </ol>
+      <p class="abaco-fonte">Método de multiplicação baseado em IBIAPINA (2018). <a href="referencias.html">Consulte a referência completa</a>.</p>
     </div>
 
     <div class="abaco-cera" id="abaco-cera">
@@ -97,11 +101,13 @@
         <button type="button" data-cera="guardar">Guardar valor</button>
         <button type="button" data-cera="somar">Somar</button>
         <button type="button" data-cera="subtrair">Subtrair</button>
+        <button type="button" data-cera="multiplicar">Multiplicar</button>
         <button type="button" data-cera="zerar">Apagar tudo</button>
       </div>
 
       <p class="cera-memoria" id="cera-memoria">Nenhum valor guardado.</p>
       <p class="cera-passo" id="cera-passo"></p>
+      <div class="abaco-multiplicacao" id="cera-multiplicacao" hidden></div>
 
       <h4>Como interpretar a representação da imagem?</h4>
       <p>O exemplo da primeira imagem representa o número 26.460.</p>
@@ -123,7 +129,11 @@
 
       <p>Assim, a leitura é realizada considerando o valor correspondente a cada coluna, resultando em 26.460. A ausência de um símbolo na coluna das unidades indica que não há unidades a acrescentar ao número.</p>
 
-      <p>Nas imagens seguintes, a disposição dos registros demonstra como a estrutura tabular permite organizar e manipular as representações numéricas, mantendo cada símbolo associado à sua respectiva ordem. A superfície de cera também oferecia a possibilidade de modificar os registros, tornando o instrumento útil para cálculos que exigiam alterações sucessivas, como operações de adição e subtração.</p>
+      <p>Além de somar e subtrair, a cera também pode registrar multiplicações pelo método das ordens numéricas mais altas: os produtos parciais são anotados nas colunas correspondentes e somados ao final. O botão <strong>Multiplicar</strong> mostra esse processo passo a passo, incluindo a regra <strong>m + n − 1</strong> para escolher a coluna de cada produto parcial (IBIAPINA, 2018). Para isso, registre o primeiro fator, clique em <strong>Guardar valor</strong> (a cera é limpa), registre o segundo fator e clique em <strong>Multiplicar</strong>.</p>
+
+      <p class="abaco-fonte">Método de multiplicação baseado em IBIAPINA (2018). <a href="referencias.html">Consulte a referência completa</a>.</p>
+
+      <p>Nas imagens seguintes, a disposição dos registros demonstra como a estrutura tabular permite organizar e manipular as representações numéricas, mantendo cada símbolo associado à sua respectiva ordem. A superfície de cera também oferecia a possibilidade de modificar os registros, tornando o instrumento útil para cálculos que exigiam alterações sucessivas, como operações de adição, subtração e multiplicação.</p>
 
       <p>Dessa maneira, o ábaco de cera contribuía para a organização dos cálculos na sociedade romana, funcionando como um suporte material para o registro, a manipulação e a visualização de números. A estrutura organizada por ordens numéricas permitia realizar cálculos sem depender exclusivamente da escrita dos números em uma sequência linear, tornando o processo mais sistemático.</p>
 
@@ -144,6 +154,7 @@
     <h4>Mais</h4>
     <ul>
       <li><a href="index.html">Página inicial</a></li>
+      <li><a href="linha-do-tempo.html">Linha do Tempo</a></li>
       <li><a href="sobre.html">Sobre o site</a></li>
     </ul>
   </div>
@@ -153,8 +164,8 @@
   <p>2026 - UNESPAR - Licenciatura de Matemática - Disciplina Historia da Matemática 2° Serie</p>
 </div>
 
-<script src="js/main.js?v=36"></script>
-<script src="js/abaco.js?v=2"></script>
-<script src="js/cera.js?v=1"></script>
+<script src="js/main.js?v=39"></script>
+<script src="js/abaco.js?v=3"></script>
+<script src="js/cera.js?v=2"></script>
 </body>
 </html>

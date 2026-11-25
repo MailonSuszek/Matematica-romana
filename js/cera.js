@@ -21,9 +21,56 @@
   var elRom = document.getElementById('cera-romano');
   var elMem = document.getElementById('cera-memoria');
   var elPasso = document.getElementById('cera-passo');
+  var elMult = document.getElementById('cera-multiplicacao');
 
   function formata(n) {
     return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
+  function limpaMultiplicacao() {
+    if (elMult) {
+      elMult.hidden = true;
+      elMult.innerHTML = '';
+    }
+  }
+
+  function rotuloColuna(i) {
+    return cols[i].sobre
+      ? '<span class="sobrelinha">' + cols[i].simbolo + '</span>'
+      : cols[i].simbolo;
+  }
+
+  // Mesmo método do ábaco de fichas (IBIAPINA, 2018), adaptado às
+  // seis colunas da cera: o produto parcial vai para a coluna m + n − 1.
+  function multiplicaPassos(a, b) {
+    var N = cols.length;
+    var da = decompoe(a);
+    var db = decompoe(b);
+    var itens = [];
+    for (var i = 0; i < N; i++) {
+      for (var j = 0; j < N; j++) {
+        var x = da[i], y = db[j];
+        if (!x || !y) continue;
+        var p = x * y;
+        var alvo = i + j - (N - 1);
+        if (alvo < 0) return null;
+        var un = p % 10;
+        var dez = Math.floor(p / 10);
+        var coluna = N - alvo;
+        var destino;
+        if (p < 10) {
+          destino = p + ' na coluna ' + coluna + ' (' + rotuloColuna(alvo) + ')';
+        } else {
+          if (alvo === 0) return null;
+          destino = p + ' na coluna ' + coluna + ': ' + un + ' em ' + rotuloColuna(alvo) +
+            ' e ' + dez + ' em ' + rotuloColuna(alvo - 1);
+        }
+        itens.push('<li><strong>' + x + ' × ' + y + ' = ' + p + '</strong> → ' + destino +
+          ' <span class="abaco-mult-regra">(colunas ' + (N - i) + ' + ' + (N - j) +
+          ' − 1 = ' + coluna + ')</span></li>');
+      }
+    }
+    return itens;
   }
 
   function romanoSimples(n) {
@@ -115,6 +162,7 @@
     } else {
       marcas[i] = Math.min(9, marcas[i] + 1);
     }
+    limpaMultiplicacao();
     atualiza();
     passo('');
   });
@@ -130,6 +178,7 @@
       if (acao === 'exemplo') {
         marcas = [0, 2, 6, 4, 6, 0];
         memoria = null;
+        limpaMultiplicacao();
         if (elMem) elMem.textContent = 'Nenhum valor guardado.';
         atualiza();
         passo('Exemplo 26.460: 2 em X̄, 6 em Ī, 4 em C, 6 em X e 0 em I.');
@@ -138,7 +187,10 @@
 
       if (acao === 'guardar') {
         memoria = t;
-        if (elMem) elMem.textContent = 'Número guardado: ' + formata(t) + '. Agora registre o segundo número e clique em Somar ou Subtrair.';
+        marcas = [0, 0, 0, 0, 0, 0];
+        limpaMultiplicacao();
+        atualiza();
+        if (elMem) elMem.textContent = 'Número guardado: ' + formata(t) + '. A cera foi limpa; registre o segundo número e clique em Somar, Subtrair ou Multiplicar.';
         passo('');
         return;
       }
@@ -146,13 +198,59 @@
       if (acao === 'zerar') {
         marcas = [0, 0, 0, 0, 0, 0];
         memoria = null;
+        limpaMultiplicacao();
         if (elMem) elMem.textContent = 'Nenhum valor guardado.';
         atualiza();
         passo('Cera limpa: todas as marcas foram apagadas.');
         return;
       }
 
+      if (acao === 'multiplicar') {
+        limpaMultiplicacao();
+        if (memoria === null) {
+          passo('Primeiro registre um número e clique em "Guardar valor".');
+          return;
+        }
+        var fator1 = memoria;
+        var fator2 = t;
+        var produto = fator1 * fator2;
+        if (produto > 999999) {
+          passo('O produto passa de 999.999, o limite destas seis colunas.');
+          return;
+        }
+        var itens = multiplicaPassos(fator1, fator2);
+        if (!itens) {
+          passo('O produto não cabe nas seis colunas desta cera.');
+          return;
+        }
+        if (elMult) {
+          elMult.hidden = false;
+          if (itens.length) {
+            elMult.innerHTML =
+              '<p class="abaco-mult-titulo"><strong>' + formata(fator1) + ' × ' + formata(fator2) +
+              ' = ' + formata(produto) + '</strong></p>' +
+              '<p class="abaco-mult-sub">Método das ordens numéricas mais altas (IBIAPINA, 2018):</p>' +
+              '<ol class="abaco-mult-passos">' + itens.join('') + '</ol>' +
+              '<p class="abaco-mult-total">Somando os produtos parciais: <strong>' + formata(produto) +
+              '</strong>' + (produto ? ' (' + romano(produto) + ')' : '') + '.</p>';
+          } else {
+            elMult.innerHTML =
+              '<p class="abaco-mult-titulo"><strong>' + formata(fator1) + ' × ' + formata(fator2) +
+              ' = 0</strong></p>' +
+              '<p class="abaco-mult-sub">Qualquer número multiplicado por zero resulta zero.</p>';
+          }
+        }
+        passo(formata(fator1) + ' × ' + formata(fator2) + ' = ' + formata(produto) + '. ' +
+          (produto ? 'Veja os produtos parciais e a regra m + n − 1 no quadro abaixo.' : 'O produto é zero.'));
+        marcas = decompoe(produto);
+        memoria = null;
+        if (elMem) elMem.textContent = 'Nenhum valor guardado.';
+        atualiza();
+        return;
+      }
+
       if (acao === 'somar' || acao === 'subtrair') {
+        limpaMultiplicacao();
         if (memoria === null) {
           passo('Primeiro registre um número e clique em "Guardar valor".');
           return;

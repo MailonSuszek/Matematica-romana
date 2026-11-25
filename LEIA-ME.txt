@@ -11,26 +11,40 @@ sistema-de-numeracao-romana.html        Sistema de Numeração Romano
 instrumentos-e-metodos-de-calculo.html  Instrumentos e Métodos de Cálculo
 experiencia-matematica.html             Experiência Matemática
 referencias.html                        Referências
+linha-do-tempo.html                     Linha do Tempo
 sobre.html                              Sobre o site
 css/style.css                           Todo o visual do site (cores, fontes, tamanhos)
 js/main.js                              Busca de palavras-chave e rodapé
+js/linha-do-tempo.js                    Linha do tempo interativa
 js/desafio.js                           Desafio de numeração romana (perguntas)
-js/abaco.js                             Ábaco de fichas interativo
-js/cera.js                              Ábaco de cera interativo
+js/abaco.js                             Ábaco de fichas (somar, subtrair e multiplicar)
+js/cera.js                              Ábaco de cera (somar, subtrair e multiplicar)
 img/favicon.svg                         Ícone da aba do navegador
 img/mapa-imperio-romano.jpg             Mapa mostrado na barra lateral
 img/numeros-romanos.webp                Imagem do desafio de numeração romana
 img/abaco.mp4                           Vídeo do ábaco romano
+document.pdf                            Artigo de Ibiapina (2018) usado na multiplicação
 experiencia.m4a                         Áudio da página Experiência Matemática
 
-COMO PREENCHER O CONTEÚDO
-Todas as páginas estão em branco. Em cada arquivo .html, procure o comentário
-"ESCREVA AQUI" dentro de <div id="content-left"> e escreva o texto ali.
+COMO EDITAR O CONTEÚDO
+O conteúdo de cada página fica dentro de <div id="content-left">. Abra o
+arquivo .html correspondente e edite o texto entre as tags.
 - Parágrafo:  <p>Seu texto.</p>
 - Subtítulo:  <h3>Título</h3>
 - Link:       <a href="sistema-de-numeracao-romana.html">texto do link</a>
-- Tabela:     use <table class="results"> (modelo comentado em experiencia-matematica.html)
-- Novidades da página inicial: modelo comentado em index.html.
+- Tabela:     use <table class="results"> (modelo em experiencia-matematica.html)
+- Novidades da página inicial: modelo em index.html.
+- Linha do tempo: copie um bloco <li class="tl-evento">...</li> inteiro em
+  linha-do-tempo.html para acrescentar outro acontecimento.
+
+MULTIPLICAÇÃO NOS ÁBACOS
+Os dois ábacos têm o botão Multiplicar. O fluxo é:
+1. Monte o primeiro fator e clique em "Guardar valor" (o ábaco é limpo).
+2. Monte o segundo fator e clique em "Multiplicar".
+O quadro abaixo do ábaco mostra os produtos parciais e a regra m + n − 1,
+do método das ordens numéricas mais altas descrito por IBIAPINA (2018).
+Limites: 9.999 no ábaco de fichas (4 colunas) e 999.999 no de cera (6 colunas).
+A referência completa está em referencias.html.
 
 PARA ADICIONAR UMA PÁGINA NOVA
 1. Copie qualquer página existente e dê um novo nome (ex.: abaco.html).

@@ -21,6 +21,7 @@
   var elRom = document.getElementById('abaco-romano');
   var elMem = document.getElementById('abaco-memoria');
   var elPasso = document.getElementById('abaco-passo');
+  var elMult = document.getElementById('abaco-multiplicacao');
 
   function romano(n) {
     if (n === 0) return '—';
@@ -56,6 +57,48 @@
 
   function formata(n) {
     return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
+  function limpaMultiplicacao() {
+    if (elMult) {
+      elMult.hidden = true;
+      elMult.innerHTML = '';
+    }
+  }
+
+  // Gera os produtos parciais do método das ordens mais altas
+  // (IBIAPINA, 2018): cada algarismo de uma coluna é multiplicado
+  // pelos algarismos das colunas do outro fator; o produto é colocado
+  // na coluna m + n − 1, contando as colunas a partir das unidades.
+  function multiplicaPassos(a, b) {
+    var N = cols.length;
+    var da = decompoe(a);
+    var db = decompoe(b);
+    var itens = [];
+    for (var i = 0; i < N; i++) {
+      for (var j = 0; j < N; j++) {
+        var x = da[i], y = db[j];
+        if (!x || !y) continue;
+        var p = x * y;
+        var alvo = i + j - (N - 1);
+        if (alvo < 0) return null;
+        var un = p % 10;
+        var dez = Math.floor(p / 10);
+        var coluna = N - alvo;
+        var destino;
+        if (p < 10) {
+          destino = p + ' na coluna ' + coluna + ' (' + cols[alvo].letra + ')';
+        } else {
+          if (alvo === 0) return null;
+          destino = p + ' na coluna ' + coluna + ': ' + un + ' em ' + cols[alvo].letra +
+            ' e ' + dez + ' em ' + cols[alvo - 1].letra;
+        }
+        itens.push('<li><strong>' + x + ' × ' + y + ' = ' + p + '</strong> → ' + destino +
+          ' <span class="abaco-mult-regra">(colunas ' + (N - i) + ' + ' + (N - j) +
+          ' − 1 = ' + coluna + ')</span></li>');
+      }
+    }
+    return itens;
   }
 
   function desenha() {
@@ -131,6 +174,7 @@
         contas[i] = Math.min(9, topo + novas);
       }
     }
+    limpaMultiplicacao();
     atualiza();
     passo('');
   });
@@ -146,6 +190,7 @@
       for (var k = 0; k < botoes.length; k++) {
         botoes[k].setAttribute('aria-pressed', botoes[k] === b ? 'true' : 'false');
       }
+      limpaMultiplicacao();
       atualiza();
       passo(modo === 'simplificado'
         ? 'Modo simplificado: cada coluna tem uma ficha superior que vale 5 e até 4 fichas inferiores.'
@@ -164,6 +209,7 @@
       if (acao === 'exemplo') {
         contas = [4, 5, 3, 7];
         memoria = null;
+        limpaMultiplicacao();
         if (elMem) elMem.textContent = 'Nenhum valor guardado.';
         atualiza();
         passo('Exemplo 4.537: 4 fichas em M, 5 em C, 3 em X e 7 em I.' +
@@ -175,7 +221,10 @@
 
       if (acao === 'guardar') {
         memoria = t;
-        if (elMem) elMem.textContent = 'Valor guardado: ' + formata(t) + ' (' + romano(t) + '). Agora monte o segundo número e clique em Somar ou Subtrair.';
+        contas = [0, 0, 0, 0];
+        limpaMultiplicacao();
+        atualiza();
+        if (elMem) elMem.textContent = 'Valor guardado: ' + formata(t) + ' (' + romano(t) + '). O ábaco foi limpo; monte o segundo número e clique em Somar, Subtrair ou Multiplicar.';
         passo('');
         return;
       }
@@ -183,13 +232,60 @@
       if (acao === 'zerar') {
         contas = [0, 0, 0, 0];
         memoria = null;
+        limpaMultiplicacao();
         if (elMem) elMem.textContent = 'Nenhum valor guardado.';
         atualiza();
         passo('Ábaco zerado.');
         return;
       }
 
+      if (acao === 'multiplicar') {
+        limpaMultiplicacao();
+        if (memoria === null) {
+          passo('Primeiro monte um número e clique em "Guardar valor".');
+          return;
+        }
+        var fator1 = memoria;
+        var fator2 = t;
+        var produto = fator1 * fator2;
+        if (produto > 9999) {
+          passo('O produto passa de 9.999, o limite deste ábaco de quatro colunas.');
+          return;
+        }
+        var itens = multiplicaPassos(fator1, fator2);
+        if (!itens) {
+          passo('O produto não cabe nas quatro colunas deste ábaco.');
+          return;
+        }
+        if (elMult) {
+          elMult.hidden = false;
+          if (itens.length) {
+            elMult.innerHTML =
+              '<p class="abaco-mult-titulo"><strong>' + formata(fator1) + ' × ' + formata(fator2) +
+              ' = ' + formata(produto) + '</strong></p>' +
+              '<p class="abaco-mult-sub">Método das ordens numéricas mais altas (IBIAPINA, 2018):</p>' +
+              '<ol class="abaco-mult-passos">' + itens.join('') + '</ol>' +
+              '<p class="abaco-mult-total">Somando os produtos parciais: <strong>' + formata(produto) +
+              '</strong>' + (produto ? ' (' + romano(produto) + ')' : '') + '.</p>';
+          } else {
+            elMult.innerHTML =
+              '<p class="abaco-mult-titulo"><strong>' + formata(fator1) + ' × ' + formata(fator2) +
+              ' = 0</strong></p>' +
+              '<p class="abaco-mult-sub">Qualquer número multiplicado por zero resulta zero.</p>';
+          }
+        }
+        passo(formata(fator1) + ' × ' + formata(fator2) + ' = ' + formata(produto) +
+          (produto ? ' (' + romano(produto) + ')' : '') + '. ' +
+          (produto ? 'Veja os produtos parciais e a regra m + n − 1 no quadro abaixo.' : 'O produto é zero.'));
+        contas = decompoe(produto);
+        memoria = null;
+        if (elMem) elMem.textContent = 'Nenhum valor guardado.';
+        atualiza();
+        return;
+      }
+
       if (acao === 'somar' || acao === 'subtrair') {
+        limpaMultiplicacao();
         if (memoria === null) {
           passo('Primeiro monte um número e clique em "Guardar valor".');
           return;
