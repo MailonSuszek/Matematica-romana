@@ -22,7 +22,23 @@ js/cera.js                              Ábaco de cera (somar, subtrair e multip
 img/favicon.svg                         Ícone da aba do navegador
 img/mapa-imperio-romano.jpg             Mapa mostrado na barra lateral
 img/numeros-romanos.webp                Imagem do desafio de numeração romana
-img/abaco.mp4                           Vídeo do ábaco romano
+img/linha-relogio-solar.webp            Foto histórica na Linha do Tempo (45 a.C.)
+img/linha-aqueduto.webp                 Foto histórica na Linha do Tempo (27 a.C.)
+img/linha-mosaico-matematicos.webp      Foto histórica na Linha do Tempo (Heron)
+img/linha-abaco-romano.webp             Foto histórica na Linha do Tempo (ábacos)
+img/linha-mapa-imperio.webp             Foto histórica na Linha do Tempo (Ptolomeu)
+img/linha-papiro.webp                   Foto histórica na Linha do Tempo (Diofanto)
+img/linha-vitruvio.webp                 Foto histórica na Linha do Tempo (Hipátia)
+img/linha-calculadores-medievais.webp   Foto histórica na Linha do Tempo (476 d.C.)
+img/coliseu-final.webp                 Imagem final da página inicial
+img/final-cesar.webp                   Imagem final de Contexto Histórico
+img/final-groma.webp                   Imagem final de A Matemática em Roma
+img/final-ordens-abaco.webp            Imagem final de Sistema de Numeração
+img/final-abaco-bronze.webp            Imagem final de Instrumentos e Métodos
+img/final-heron.webp                   Imagem final de Experiência Matemática
+img/final-medalhao.webp                Imagem final da Linha do Tempo
+img/final-papiro.webp                  Imagem final de Referências
+img/final-panteao.webp                 Imagem final de Sobre o site
 document.pdf                            Artigo de Ibiapina (2018) usado na multiplicação
 experiencia.m4a                         Áudio da página Experiência Matemática
 
@@ -41,7 +57,6 @@ TEXTOS E CITAÇÕES
 Cada página foi reescrita com base nos artigos em PDF. As afirmações vêm
 no corpo do texto no formato "segundo [autor] (ano)" e toda obra citada
 aparece em referencias.html, com o PDF correspondente salvo na raiz.
-No fim das páginas há uma nota de fonte com link para referencias.html.
 Os números de versão no fim dos links de CSS e JS forçam a atualização
 quando o navegador guarda uma cópia antiga dos arquivos.
 

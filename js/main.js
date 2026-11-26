@@ -6,7 +6,7 @@
     {
       title: 'Início',
       url: 'index.html',
-      text: 'Matemática no Império Romano. Segundo Caressa (2012), os romanos praticavam uma matemática algorítmica, de medidas, cálculos e procedimentos transmitidos por exemplos. Segundo Castellanos Suárez et al. (2023), o saber dos tutores gregos, muitos escravos, não era reconhecido como conhecimento próprio. Segundo Sanchez (2020), a escola elementar era privada, não regulada pelo Estado e reservada a uma elite; esperava-se contar, somar, subtrair e dividir, inclusive com os dedos. Últimas novidades: matemática a serviço do Império, numerais zero e frações, primeira calculadora de bolso, Alexandria sob o domínio romano.'
+      text: 'Matemática no Império Romano. Segundo Caressa (2012), os romanos praticavam uma matemática algorítmica, de medidas, cálculos e procedimentos transmitidos por exemplos. Segundo Castellanos Suárez et al. (2023), o saber dos tutores gregos, muitos escravos, não era reconhecido como conhecimento próprio. Segundo Sanchez (2020), a escola elementar era privada, não regulada pelo Estado e reservada a uma elite; esperava-se contar, somar, subtrair e dividir, inclusive com os dedos. Últimas novidades: ábacos interativos de fichas e cera com soma, subtração e multiplicação, linha do tempo interativa com oito marcos de 45 a.C. a 476 d.C., sistema de numeração com frações duodecimais e desafio de 10 perguntas.'
     },
     {
       title: 'Contexto Histórico',
@@ -36,12 +36,12 @@
     {
       title: 'Referências',
       url: 'referencias.html',
-      text: 'Referências ABNT usadas no site, com links para os PDFs salvos na pasta: Souza e Pinho, Escola Kids, Brasil Escola, Roque (2012), Ibiapina (2018), Caressa (2012), Castellanos Suárez et al. (2023), Ibiapina (2021), Maher e Makowski (2001), Martin (2006), Miguel Gil (s.d.), Núñez (2003), Sanchez (2020), Silva e Mendes (2013). Roma antiga, etnomatemática, frações, ábaco, educação matemática, história da matemática.'
+      text: 'Referências ABNT usadas no site, com links para os PDFs salvos na pasta: Escola Kids, Brasil Escola, Ibiapina (2018), Caressa (2012), Castellanos Suárez et al. (2023), Ibiapina (2021), Maher e Makowski (2001), Martin (2006), Miguel Gil (s.d.), Núñez (2003), Sanchez (2020), Silva e Mendes (2013). Roma antiga, etnomatemática, frações, ábaco, educação matemática, história da matemática.'
     },
     {
       title: 'Linha do Tempo',
       url: 'linha-do-tempo.html',
-      text: '45 a.C., calendário juliano com Sosígenes. 27 a.C., início do Império e matemática a serviço do Estado. Século I d.C., Heron de Alexandria. Século I e II d.C., ábacos e calculi. Século II d.C., Ptolomeu e a Geografia. Século III d.C., Diofanto e a Aritmética. Século IV d.C., Teon e Hipátia. 476 d.C., fim do Império do Ocidente. Fontes: Miguel Gil, Castellanos Suárez et al., Caressa, Silva e Mendes, Núñez, Sanchez e Ibiapina.'
+      text: '45 a.C., calendário juliano com Sosígenes. 27 a.C., início do Império e matemática a serviço do Estado. Século I d.C., Heron de Alexandria. Século I e II d.C., ábacos e calculi. Século II d.C., Ptolomeu e a Geografia. Século III d.C., Diofanto e a Aritmética. Século IV d.C., Teon e Hipátia. 476 d.C., fim do Império do Ocidente. Fotos históricas extraídas dos artigos: relógio de sol, aqueduto, mosaico de matemáticos, ábaco romano de metal, mapa das províncias, papiro, homem de Vitrúvio e calculadores medievais, cada uma com FONTE. Fontes: Miguel Gil, Castellanos Suárez et al., Caressa, Silva e Mendes, Núñez, Sanchez e Ibiapina.'
     },
     {
       title: 'Sobre',
