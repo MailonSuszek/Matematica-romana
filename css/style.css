@@ -142,6 +142,16 @@ ul.referencias { list-style: none; margin: 0; padding: 0; }
 ul.referencias li { margin: 0 0 1.1em; }
 ul.referencias li:last-child { margin-bottom: 0; }
 
+/* nota de fonte no fim de cada página */
+p.fonte-nota {
+  margin: 2em 0 0;
+  padding-top: 0.9em;
+  border-top: 1px solid #ddd;
+  font-size: 0.86em;
+  color: #555;
+}
+p.fonte-nota a { color: #08c; }
+
 /* vídeo no fim da página */
 .video-figura { margin: 2em 0 0; }
 .video-figura video {

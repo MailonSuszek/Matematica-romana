@@ -37,6 +37,14 @@ arquivo .html correspondente e edite o texto entre as tags.
 - Linha do tempo: copie um bloco <li class="tl-evento">...</li> inteiro em
   linha-do-tempo.html para acrescentar outro acontecimento.
 
+TEXTOS E CITAÇÕES
+Cada página foi reescrita com base nos artigos em PDF. As afirmações vêm
+no corpo do texto no formato "segundo [autor] (ano)" e toda obra citada
+aparece em referencias.html, com o PDF correspondente salvo na raiz.
+No fim das páginas há uma nota de fonte com link para referencias.html.
+Os números de versão no fim dos links de CSS e JS forçam a atualização
+quando o navegador guarda uma cópia antiga dos arquivos.
+
 MULTIPLICAÇÃO NOS ÁBACOS
 Os dois ábacos têm o botão Multiplicar. O fluxo é:
 1. Monte o primeiro fator e clique em "Guardar valor" (o ábaco é limpo).
@@ -45,6 +53,19 @@ O quadro abaixo do ábaco mostra os produtos parciais e a regra m + n − 1,
 do método das ordens numéricas mais altas descrito por IBIAPINA (2018).
 Limites: 9.999 no ábaco de fichas (4 colunas) e 999.999 no de cera (6 colunas).
 A referência completa está em referencias.html.
+
+ARTIGOS EM PDF (FONTES)
+A pasta do site também guarda estes textos usados na pesquisa. Os links para
+abrir cada um estão em referencias.html.
+- artigo-caressa-2012-matematica-dos-romanos.pdf — Paolo Caressa, panorama da matemática romana.
+- artigo-castellanos-2023-matematica-na-roma-antiga.pdf — Castellanos Suárez, Delgadillo Dávila e Estrada Esquivel, estudo etnomatemático.
+- artigo-ibiapina-2021-abaco-romano-operacoes.pdf — Wilter Freitas Ibiapina, operações de adição, subtração e multiplicação no ábaco romano.
+- artigo-maher-makowski-2001-aritmetica-romana-fracoes.pdf — David W. Maher e John F. Makowski, aritmética romana com frações.
+- artigo-martin-2006-calculo-com-numeros-romanos.pdf — John N. Martin, cálculo com numerais romanos e o ábaco.
+- artigo-miguel-gil-matematicas-helenicas-e-romanas.pdf — Ana María Miguel Gil, o ocaso da matemática helena e a matemática em Roma.
+- artigo-nunez-2003-tabuleiro-de-calculo-romano.pdf — José María Núñez, tabuleiro de cálculo e operações com números romanos.
+- artigo-sanchez-2020-educacao-matematica-na-roma-antiga.pdf — Luis Sanchez, educação matemática na Roma antiga.
+- artigo-silva-mendes-2013-historia-e-sociologia-da-matematica.pdf — Maria Deusa Ferreira da Silva e Iran Abreu Mendes, história e sociologia da matemática.
 
 PARA ADICIONAR UMA PÁGINA NOVA
 1. Copie qualquer página existente e dê um novo nome (ex.: abaco.html).
